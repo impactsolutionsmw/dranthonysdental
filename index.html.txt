@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 👇 CHANGE THIS: Your clinic name for browser tab -->
+    <title>Dr. Anthony's Dental Clinic | Lilongwe & Blantyre</title>
+    
+    <!-- Tailwind CSS CDN - DO NOT TOUCH THIS -->
+    <script src="https://tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medicalBlue: '#1E3A8A',
+                        tealAccent: '#0D9488',
+                        pinkAction: '#DB2777',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <!-- ============================================ -->
+    <!-- HEADER & NAVIGATION -->
+    <!-- ============================================ -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            
+            <!-- 👇 CHANGE THIS: Your clinic logo/brand name -->
+            <div class="flex items-center space-x-2">
+                <div class="bg-medicalBlue text-white p-2 rounded-lg font-bold text-xl">🦷</div>
+                <div>
+                    <span class="font-extrabold text-lg text-medicalBlue block leading-none">DR. ANTHONY'S</span>
+                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Dental Clinic</span>
+                </div>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-6 font-medium text-slate-600 text-sm">
+                <a href="#" class="text-medicalBlue hover:text-tealAccent border-b-2 border-medicalBlue pb-1">Home</a>
+                <a href="#branches" class="hover:text-medicalBlue transition">Our Branches</a>
+                <a href="#services" class="hover:text-medicalBlue transition">Services</a>
+                <a href="#team" class="hover:text-medicalBlue transition">Our Team</a>
+                <a href="#testimonials" class="hover:text-medicalBlue transition">Testimonials</a>
+                <a href="#contact" class="hover:text-medicalBlue transition">Contact</a>
+            </nav>
+            
+            <!-- Desktop Book Button -->
+            <a href="#appointment" class="hidden md:inline-block bg-pinkAction hover:bg-pink-700 text-white px-5 py-2.5 rounded-full font-bold shadow-md transition text-sm tracking-wide">
+                Book Appointment
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-toggle" class="md:hidden text-slate-700 focus:outline-none" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 pt-2 space-y-2 border-t bg-white">
+            <a href="#" class="block text-medicalBlue font-semibold py-2">Home</a>
+            <a href="#branches" class="block text-slate-600 hover:text-medicalBlue py-2">Our Branches</a>
+            <a href="#services" class="block text-slate-600 hover:text-medicalBlue py-2">Services</a>
+            <a href="#team" class="block text-slate-600 hover:text-medicalBlue py-2">Our Team</a>
+            <a href="#testimonials" class="block text-slate-600 hover:text-medicalBlue py-2">Testimonials</a>
+            <a href="#contact" class="block text-slate-600 hover:text-medicalBlue py-2">Contact</a>
+            <a href="#appointment" class="inline-block bg-pinkAction text-white px-5 py-2 rounded-full font-bold mt-2 text-sm">Book Appointment</a>
+        </div>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- MULTI-BRANCH INFO STRIP (Top Bar) -->
+    <!-- ============================================ -->
+    <div class="bg-tealAccent text-white text-sm">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            
+            <!-- 👇 CHANGE THESE: Update with actual branch cities/areas -->
+            <span class="flex items-center space-x-1"><span>📍</span> <strong>3 Branches:</strong></span>
+            <span class="flex items-center space-x-1"><span class="text-teal-200">●</span> <span>Lilongwe (City Centre)</span></span>
+            <span class="flex items-center space-x-1"><span class="text-teal-200">●</span> <span>Lilongwe (Area 47)</span></span>
+            <span class="flex items-center space-x-1"><span class="text-teal-200">●</span> <span>Blantyre</span></span>
+            <span class="hidden sm:inline text-teal-300">|</span>
+            <span class="flex items-center space-x-1"><span>⏰</span> <span>Mon - Sat: 8:00 AM - 5:00 PM</span></span>
+            
+            <!-- 👇 CHANGE THIS: Main reception phone number -->
+            <span class="hidden lg:inline text-teal-300">|</span>
+            <span class="flex items-center space-x-1"><span>📞</span> <a href="tel:01820774" class="hover:underline font-semibold">01 820 774</a></span>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- HERO SECTION -->
+    <!-- ============================================ -->
+    <section class="relative bg-gradient-to-br from-medicalBlue via-blue-900 to-slate-900 text-white overflow-hidden py-20 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-6 text-center lg:text-left">
+                
+                <!-- 👇 CHANGE THIS: Small tagline above main heading -->
+                <span class="bg-blue-800 text-blue-300 font-semibold px-4 py-1.5 rounded-full text-xs uppercase tracking-widest inline-block">3 Convenient Locations Across Malawi</span>
+                
+                <!-- 👇 CHANGE THIS: Main headline -->
+                <h1 class="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
+                    Complete Dental Care For Your Family's Smile
+                </h1>
+                
+                <!-- 👇 CHANGE THIS: Sub-headline paragraph -->
+                <p class="text-slate-300 text-lg max-w-xl mx-auto lg:mx-0">
+                    Experience top-tier dental treatments delivered with modern techniques and personalized, gentle clinical care. Now serving Lilongwe and Blantyre.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#appointment" class="bg-tealAccent hover:bg-teal-700 text-white font-bold px-8 py-4 rounded-xl text-center shadow-lg transition">
+                        Request Appointment Online
+                    </a>
+                    
+                    <!-- 👇 CHANGE THIS: Main phone number in hero -->
+                    <a href="tel:01820774" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold px-8 py-4 rounded-xl text-center backdrop-blur transition">
+                        Call Central Desk: 01 820 774
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 👇 CHANGE THIS: Replace the emoji with your own image URL -->
+            <div class="hidden lg:flex justify-center relative">
+                <div class="absolute inset-0 bg-gradient-to-tr from-tealAccent/20 to-transparent rounded-full filter blur-3xl animate-pulse"></div>
+                <div class="w-96 h-96 bg-white/5 rounded-3xl border border-white/15 backdrop-blur-sm flex flex-col items-center justify-center p-8 shadow-2xl relative">
+                    <span class="text-8xl mb-4">😁</span>
+                    <h3 class="font-extrabold text-xl mb-1">Your Smile Awaits</h3>
+                    <p class="text-slate-400 text-sm text-center">Visit any of our three branches in Lilongwe and Blantyre.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- OUR BRANCHES SECTION -->
+    <!-- ============================================ -->
+    <section id="branches" class="max-w-7xl mx-auto px-4 py-20">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            
+            <!-- 👇 CHANGE THIS: Branches section title -->
+            <h2 class="text-3xl font-black text-medicalBlue mb-4">Our Three Branches</h2>
+            
+            <!-- 👇 CHANGE THIS: Branches section description -->
+            <p class="text-slate-600">Quality dental care is never far away. Visit us at any of our conveniently located clinics in Lilongwe and Blantyre.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Branch 1: Lilongwe City Centre -->
+            <!-- 👇 CHANGE THESE: Edit branch details -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 hover:shadow-md transition text-center">
+                <div class="bg-blue-50 text-medicalBlue w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl">📍</div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Lilongwe — City Centre</h3>
+                <p class="text-tealAccent font-semibold text-sm mb-3">Main Branch</p>
+                <p class="text-slate-600 text-sm mb-4">Our flagship clinic in the heart of the capital, fully equipped with the latest dental technology.</p>
+                <div class="text-sm text-slate-500 space-y-1">
+                    <p>⏰ Mon - Sat: 8:00 AM - 5:00 PM</p>
+                    <!-- 👇 CHANGE THIS: Branch-specific phone -->
+                    <p>📞 01 820 774</p>
+                </div>
+                <a href="tel:01820774" class="inline-block mt-4 text-tealAccent font-semibold text-sm hover:underline">Call This Branch &rarr;</a>
+            </div>
+
+            <!-- Branch 2: Lilongwe Area 47 -->
+            <!-- 👇 CHANGE THESE: Edit branch details -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 hover:shadow-md transition text-center">
+                <div class="bg-blue-50 text-medicalBlue w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl">📍</div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Lilongwe — Area 47</h3>
+                <p class="text-tealAccent font-semibold text-sm mb-3">Satellite Branch</p>
+                <p class="text-slate-600 text-sm mb-4">Serving the Area 47 community with comprehensive dental care in a modern, welcoming environment.</p>
+                <div class="text-sm text-slate-500 space-y-1">
+                    <p>⏰ Mon - Sat: 8:00 AM - 5:00 PM</p>
+                    <!-- 👇 CHANGE THIS: Branch-specific phone -->
+                    <p>📞 01 820 775</p>
+                </div>
+                <a href="tel:01820775" class="inline-block mt-4 text-tealAccent font-semibold text-sm hover:underline">Call This Branch &rarr;</a>
+            </div>
+
+            <!-- Branch 3: Blantyre -->
+            <!-- 👇 CHANGE THESE: Edit branch details -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 hover:shadow-md transition text-center">
+                <div class="bg-blue-50 text-medicalBlue w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl">📍</div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Blantyre</h3>
+                <p class="text-tealAccent font-semibold text-sm mb-3">Southern Region Branch</p>
+                <p class="text-slate-600 text-sm mb-4">Bringing expert dental services to Malawi's commercial capital with the same high standards of care.</p>
+                <div class="text-sm text-slate-500 space-y-1">
+                    <p>⏰ Mon - Sat: 8:00 AM - 5:00 PM</p>
+                    <!-- 👇 CHANGE THIS: Branch-specific phone -->
+                    <p>📞 0996 256 948</p>
+                </div>
+                <a href="tel:0996256948" class="inline-block mt-4 text-tealAccent font-semibold text-sm hover:underline">Call This Branch &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SERVICES SECTION -->
+    <!-- ============================================ -->
+    <section id="services" class="bg-slate-100 py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                
+                <!-- 👇 CHANGE THIS: Services section title -->
+                <h2 class="text-3xl font-black text-medicalBlue mb-4">Our Professional Services</h2>
+                
+                <!-- 👇 CHANGE THIS: Services section description -->
+                <p class="text-slate-600">Comprehensive oral healthcare provided at all three branches utilizing sterilized equipment, modern diagnostics, and friendly clinical procedures.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1: General Dentistry -->
+                <!-- 👇 CHANGE THIS: Edit service name and description below -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md border border-slate-100 transition flex flex-col justify-between">
+                    <div>
+                        <div class="bg-blue-50 text-medicalBlue w-12 h-12 rounded-xl flex items-center justify-center font-bold text-xl mb-6">🩺</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">General Dentistry</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Keep your teeth healthy and bright with our comprehensive general dentistry services. From regular checkups and deep cleanings to early cavity detection, we focus on preventive care to stop dental issues before they start.</p>
+                    </div>
+                    <a href="#appointment" class="text-tealAccent font-semibold text-sm inline-flex items-center mt-6 hover:underline">Book now &rarr;</a>
+                </div>
+
+                <!-- Service 2: Orthodontics -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md border border-slate-100 transition flex flex-col justify-between">
+                    <div>
+                        <div class="bg-blue-50 text-medicalBlue w-12 h-12 rounded-xl flex items-center justify-center font-bold text-xl mb-6">😬</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Orthodontics (Braces)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Misaligned teeth can affect both your confidence and your bite. Our advanced orthodontic treatments, including traditional and modern braces, are customized to gently align your teeth for a perfect, healthy smile.</p>
+                    </div>
+                    <a href="#appointment" class="text-tealAccent font-semibold text-sm inline-flex items-center mt-6 hover:underline">Book now &rarr;</a>
+                </div>
+
+                <!-- Service 3: Dental Implants -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md border border-slate-100 transition flex flex-col justify-between">
+                    <div>
+                        <div class="bg-blue-50 text-medicalBlue w-12 h-12 rounded-xl flex items-center justify-center font-bold text-xl mb-6">🔩</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Dental Implants</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Regain the function and appearance of missing teeth. Our premium dental implants offer a permanent, secure, and completely natural-looking solution that anchors safely into your jaw, restoring your ability to eat and smile with ease.</p>
+                    </div>
+                    <a href="#appointment" class="text-tealAccent font-semibold text-sm inline-flex items-center mt-6 hover:underline">Book now &rarr;</a>
+                </div>
+
+                <!-- Service 4: Root Canal -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md border border-slate-100 transition flex flex-col justify-between">
+                    <div>
+                        <div class="bg-blue-50 text-medicalBlue w-12 h-12 rounded-xl flex items-center justify-center font-bold text-xl mb-6">⚡</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Root Canal Treatment</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Severe toothaches are often caused by deep infections. Our precise root canal therapies remove damaged tissue, eliminate persistent pain, and save your natural tooth from extraction.</p>
+                    </div>
+                    <a href="#appointment" class="text-tealAccent font-semibold text-sm inline-flex items-center mt-6 hover:underline">Book now &rarr;</a>
+                </div>
+
+                <!-- Service 5: Pediatric Dentistry -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md border border-slate-100 transition flex flex-col justify-between">
+                    <div>
+                        <div class="bg-blue-50 text-medicalBlue w-12 h-12 rounded-xl flex items-center justify-center font-bold text-xl mb-6">🧸</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Pediatric Dentistry</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">We make dental visits fun for children! Our gentle approach includes preventive sealants, fluoride treatments, and education that helps kids build healthy habits for a lifetime of beautiful smiles.</p>
+                    </div>
+                    <a href="#appointment" class="text-tealAccent font-semibold text-sm inline-flex items-center mt-6 hover:underline">Book now &rarr;</a>
+                </div>
+
+                <!-- Service 6: Cosmetic Dentistry -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md border border-slate-100 transition flex flex-col justify-between">
+                    <div>
+                        <div class="bg-blue-50 text-medicalBlue w-12 h-12 rounded-xl flex items-center justify-center font-bold text-xl mb-6">✨</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Cosmetic Dentistry</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Transform your smile with professional teeth whitening, veneers, and smile makeovers. Our cosmetic procedures are designed to give you a radiant, confident smile that you'll love to show off.</p>
+                    </div>
+                    <a href="#appointment" class="text-tealAccent font-semibold text-sm inline-flex items-center mt-6 hover:underline">Book now &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- WHY CHOOSE US SECTION -->
+    <!-- ============================================ -->
+    <section id="about" class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+                
+                <!-- 👇 CHANGE THIS: Replace with your clinic photo URL -->
+                <img src="https://placehold.co/600x400/1E3A8A/white?text=YOUR+CLINIC+PHOTO+HERE" alt="Dr. Anthony's clinic" class="rounded-2xl shadow-lg w-full h-auto object-cover" />
+                
+            </div>
+            <div class="order-1 lg:order-2 space-y-6">
+                
+                <span class="text-tealAccent font-semibold uppercase tracking-widest text-sm">Why Choose Us</span>
+                
+                <!-- 👇 CHANGE THIS: Section headline -->
+                <h2 class="text-3xl font-black text-medicalBlue">Committed to Excellence Across All Branches</h2>
+                
+                <div class="space-y-4 text-slate-600">
+                    <!-- 👇 CHANGE THESE: Edit the reasons why patients should choose you -->
+                    <div class="flex items-start space-x-3">
+                        <span class="text-tealAccent text-xl mt-0.5">✓</span>
+                        <span><strong>Three Convenient Locations:</strong> Two branches in Lilongwe and one in Blantyre — quality dental care is always within reach.</span>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <span class="text-tealAccent text-xl mt-0.5">✓</span>
+                        <span><strong>Sterilized & Modern Equipment:</strong> We use the latest dental technology and maintain rigorous sterilization protocols for your safety.</span>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <span class="text-tealAccent text-xl mt-0.5">✓</span>
+                        <span><strong>Experienced Dental Team:</strong> Dr. Anthony and his associates bring decades of combined experience across all dental specialties.</span>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <span class="text-tealAccent text-xl mt-0.5">✓</span>
+                        <span><strong>Patient-Centered Approach:</strong> We listen to your concerns, explain every procedure, and tailor treatment plans to your needs and budget.</span>
+                    </div>
+                </div>
+                
+                <a href="#branches" class="inline-block bg-medicalBlue hover:bg-blue-900 text-white font-bold px-6 py-3 rounded-xl transition">Find Your Nearest Branch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- MEET THE TEAM SECTION -->
+    <!-- ============================================ -->
+    <section id="team" class="max-w-7xl mx-auto px-4 py-20">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            
+            <!-- 👇 CHANGE THIS: Team section title -->
+            <h2 class="text-3xl font-black text-medicalBlue mb-4">Meet Our Dental Experts</h2>
+            
+            <!-- 👇 CHANGE THIS: Team section description -->
+            <p class="text-slate-600">Our caring professionals are dedicated to providing you with the highest standard of dental care at all three branches.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Team Member 1 -->
+            <!-- 👇 CHANGE THIS: Replace placeholder URL with actual photo, and edit name/title -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 text-center">
+                <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden">
+                    <img src="https://placehold.co/200x200/0D9488/white?text=DR+ANTHONY" alt="Dr. Anthony" class="w-full h-full object-cover" />
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">Dr. Anthony Banda</h3>
+                <p class="text-tealAccent font-medium text-sm mb-2">Lead Dentist & Founder</p>
+                <p class="text-slate-600 text-sm">With over 15 years of experience, Dr. Anthony oversees all three branches and specializes in implantology and restorative dentistry.</p>
+            </div>
+            
+            <!-- Team Member 2 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 text-center">
+                <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden">
+                    <img src="https://placehold.co/200x200/1E3A8A/white?text=DR+CHISOMO" alt="Dr. Chisomo" class="w-full h-full object-cover" />
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">Dr. Chisomo Phiri</h3>
+                <p class="text-tealAccent font-medium text-sm mb-2">Orthodontist — Lilongwe City Centre</p>
+                <p class="text-slate-600 text-sm">Passionate about creating beautiful smiles, Dr. Chisomo handles braces and aligner treatments for patients of all ages.</p>
+            </div>
+            
+            <!-- Team Member 3 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 text-center">
+                <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden">
+                    <img src="https://placehold.co/200x200/DB2777/white?text=DR+THOKO" alt="Dr. Thoko" class="w-full h-full object-cover" />
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">Dr. Thokozani Mkandawire</h3>
+                <p class="text-tealAccent font-medium text-sm mb-2">Pediatric Specialist — Blantyre</p>
+                <p class="text-slate-600 text-sm">A child-friendly dentist who ensures every little patient leaves with a smile and a sticker.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- TESTIMONIALS SECTION -->
+    <!-- ============================================ -->
+    <section id="testimonials" class="bg-slate-100 py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black text-medicalBlue mb-4">What Our Patients Say</h2>
+                <p class="text-slate-600">Hear from the wonderful people who trust us with their smiles across Lilongwe and Blantyre.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- 👇 CHANGE THESE: Edit testimonial text, patient name, and location -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm relative">
+                    <div class="text-4xl text-tealAccent mb-4">"</div>
+                    <p class="text-slate-600 italic mb-4">I used to be terrified of the dentist, but Dr. Anthony and his team at the City Centre branch made me feel completely at ease. My root canal was painless!</p>
+                    <div class="font-bold text-slate-900">Grace M.</div>
+                    <div class="text-sm text-slate-500">Lilongwe</div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-sm relative">
+                    <div class="text-4xl text-tealAccent mb-4">"</div>
+                    <p class="text-slate-600 italic mb-4">The Area 47 branch is so convenient. My daughter's orthodontic treatment was outstanding. The staff is friendly and professional — highly recommended!</p>
+                    <div class="font-bold text-slate-900">Peter K.</div>
+                    <div class="text-sm text-slate-500">Lilongwe, Area 47</div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-sm relative">
+                    <div class="text-4xl text-tealAccent mb-4">"</div>
+                    <p class="text-slate-600 italic mb-4">I got dental implants at the Blantyre branch and they look and feel completely natural. The whole process was explained clearly, and the care was exceptional.</p>
+                    <div class="font-bold text-slate-900">Miriam T.</div>
+                    <div class="text-sm text-slate-500">Blantyre</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- APPOINTMENT FORM SECTION -->
+    <!-- ============================================ -->
+    <section id="appointment" class="max-w-4xl mx-auto px-4 py-20">
+        <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 md:p-12">
+            <div class="text-center mb-10">
+                
+                <!-- 👇 CHANGE THIS: Form title and description -->
+                <h2 class="text-3xl font-black text-medicalBlue mb-2">Book Your Appointment</h2>
+                <p class="text-slate-600">Fill out the form below and our friendly staff will confirm your slot at your preferred branch.</p>
+                
+            </div>
+            
+            <!-- NOTE: This form currently just displays - it doesn't send data anywhere. -->
+            <!-- To make it work, you'd need a backend service (like Formspree, which is free). -->
+            <!-- For now, patients can call your number to book. -->
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Full Name *</label>
+                    <input type="text" required class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-tealAccent" placeholder="Your full name" />
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Phone Number *</label>
+                    <input type="tel" required class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-tealAccent" placeholder="e.g., 0999 123 456" />
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Email Address</label>
+                    <input type="email" class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-tealAccent" placeholder="you@example.com" />
+                </div>
+                
+                <!-- 👇 CHANGE THIS: Update branch names in dropdown if needed -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Preferred Branch *</label>
+                    <select required class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-tealAccent">
+                        <option value="">Select a branch...</option>
+                        <option>Lilongwe — City Centre</option>
+                        <option>Lilongwe — Area 47</option>
+                        <option>Blantyre</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Preferred Date</label>
+                    <input type="date" class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-tealAccent" />
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Service Interest</label>
+                    <select class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-tealAccent">
+                        <option>General Checkup / Cleaning</option>
+                        <option>Orthodontics (Braces)</option>
+                        <option>Dental Implants</option>
+                        <option>Root Canal</option>
+                        <option>Pediatric Dentistry</option>
+                        <option>Cosmetic Dentistry</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Additional Message</label>
+                    <textarea rows="3" class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-tealAccent" placeholder="Tell us about any concerns or special requests..."></textarea>
+                </div>
+                <div class="md:col-span-2 text-center">
+                    <button type="submit" class="bg-pinkAction hover:bg-pink-700 text-white font-bold px-10 py-4 rounded-xl shadow-lg transition text-lg">
+                        Submit Request
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER SECTION -->
+    <!-- ============================================ -->
+    <footer id="contact" class="bg-medicalBlue text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-10">
+            
+            <!-- Clinic Info -->
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2">
+                    <div class="bg-white text-medicalBlue p-2 rounded-lg font-bold text-xl">🦷</div>
+                    <span class="font-extrabold text-lg">DR. ANTHONY'S</span>
+                </div>
+                
+                <!-- 👇 CHANGE THIS: Footer clinic description -->
+                <p class="text-blue-200 text-sm">Providing exceptional dental care across Malawi with three convenient branches in Lilongwe and Blantyre.</p>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-blue-200 text-sm">
+                    <li><a href="#" class="hover:text-white transition">Home</a></li>
+                    <li><a href="#branches" class="hover:text-white transition">Our Branches</a></li>
+                    <li><a href="#services" class="hover:text-white transition">Services</a></li>
+                    <li><a href="#team" class="hover:text-white transition">Our Team</a></li>
+                    <li><a href="#appointment" class="hover:text-white transition">Book Appointment</a></li>
+                </ul>
+            </div>
+            
+            <!-- Branches Summary -->
+            <div>
+                <h4 class="font-bold text-lg mb-4">Our Branches</h4>
+                <ul class="space-y-3 text-blue-200 text-sm">
+                    <!-- 👇 CHANGE THESE: Update branch details -->
+                    <li>
+                        <p class="font-semibold text-white">Lilongwe — City Centre</p>
+                        <p>📞 01 820 774</p>
+                    </li>
+                    <li>
+                        <p class="font-semibold text-white">Lilongwe — Area 47</p>
+                        <p>📞 01 820 775</p>
+                    </li>
+                    <li>
+                        <p class="font-semibold text-white">Blantyre</p>
+                        <p>📞 0996 256 948</p>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Contact Details -->
+            <div>
+                <h4 class="font-bold text-lg mb-4">Contact Us</h4>
+                <div class="space-y-2 text-blue-200 text-sm">
+                    
+                    <!-- 👇 CHANGE THIS: Central reception phone -->
+                    <p>📞 Central Desk: <a href="tel:01820774" class="hover:underline">01 820 774</a></p>
+                    
+                    <!-- 👇 CHANGE THIS: Email address -->
+                    <p>✉️ info@dranthonysdental.mw</p>
+                    
+                    <!-- 👇 CHANGE THIS: Working hours -->
+                    <p>⏰ Mon - Sat: 8:00 AM - 5:00 PM</p>
+                </div>
+                
+                <!-- 👇 CHANGE THIS: You can replace this with a Google Maps embed -->
+                <div class="mt-4 h-32 bg-blue-900 rounded-xl flex items-center justify-center text-blue-300 text-sm">
+                    [ Map Placeholder ]
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="border-t border-blue-800 mt-12 pt-6 text-center text-blue-300 text-sm">
+            
+            <!-- 👇 CHANGE THIS: Your clinic name in copyright -->
+            © <span id="year"></span> Dr. Anthony's Dental Clinic. All rights reserved. Designed with ❤️ for healthy smiles across Malawi.
+            
+        </div>
+    </footer>
+
+    <!-- ============================================ -->
+    <!-- JAVASCRIPT - DO NOT TOUCH -->
+    <!-- ============================================ -->
+    <script>
+        // Mobile menu toggle
+        const toggleBtn = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (toggleBtn && mobileMenu) {
+            toggleBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        // Auto-update copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>dranthonysdental
